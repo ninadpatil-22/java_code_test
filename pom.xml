@@ -12,10 +12,11 @@
   <properties>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
+    <sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
   </properties>
 
   <dependencies>
-    <!-- JUnit 5 for unit testing -->
+    <!-- JUnit 5 -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter</artifactId>
@@ -26,21 +27,21 @@
 
   <build>
     <plugins>
-      <!-- Compiler Plugin -->
+      <!-- Java Compilation -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.10.1</version>
       </plugin>
 
-      <!-- Surefire Plugin for running tests -->
+      <!-- JUnit Execution -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.0.0-M9</version>
       </plugin>
 
-      <!-- JaCoCo Plugin for code coverage -->
+      <!-- JaCoCo Coverage Plugin -->
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
@@ -61,11 +62,18 @@
         </executions>
       </plugin>
 
-      <!-- JAR Packaging -->
+      <!-- Jar Output -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
         <version>3.3.0</version>
+      </plugin>
+
+      <!-- Sonar Scanner Plugin (explicit version warning fix) -->
+      <plugin>
+        <groupId>org.sonarsource.scanner.maven</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>4.0.0.4121</version>
       </plugin>
     </plugins>
   </build>

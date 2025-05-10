@@ -15,6 +15,7 @@
   </properties>
 
   <dependencies>
+    <!-- JUnit 5 for unit testing -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter</artifactId>
@@ -25,14 +26,21 @@
 
   <build>
     <plugins>
-      <!-- Unit Test Plugin -->
+      <!-- Compiler Plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.10.1</version>
+      </plugin>
+
+      <!-- Surefire Plugin for running tests -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.0.0-M9</version>
       </plugin>
 
-      <!-- Code Coverage Plugin -->
+      <!-- JaCoCo Plugin for code coverage -->
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
@@ -51,6 +59,13 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+
+      <!-- JAR Packaging -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.3.0</version>
       </plugin>
     </plugins>
   </build>

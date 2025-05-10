@@ -39,6 +39,9 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.0.0-M9</version>
+        <configuration>
+          <useModulePath>false</useModulePath> <!-- Required for JDK 17 -->
+        </configuration>
       </plugin>
 
       <!-- JaCoCo Coverage Plugin -->
@@ -69,7 +72,7 @@
         <version>3.3.0</version>
       </plugin>
 
-      <!-- Sonar Scanner Plugin (explicit version warning fix) -->
+      <!-- Sonar Scanner Plugin -->
       <plugin>
         <groupId>org.sonarsource.scanner.maven</groupId>
         <artifactId>sonar-maven-plugin</artifactId>
